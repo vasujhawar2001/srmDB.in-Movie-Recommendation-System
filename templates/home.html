@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>srmDB.in</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+
+  <!-- External CSS -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+  <script type="text/javascript">
+    var films = {{suggestions|tojson}};
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+
+</head>
+
+<header>
+  <div class="row">
+    <div class="logo-row">
+      <img src="../static/srmDB-logos.jpeg" alt="logo" class="logo">
+    </div>
+  </div>
+</header>
+
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
+<div class="body-content">
+	<div class="ml-container" style="display: block;">
+    <!-- <center><h1 class="app-title">heading</h1></center> -->
+    <div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: white;">
+        <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="on" placeholder="Enter Movie Name..." style="background-color: #ffffff;border-color:#ffffff;width: 60%;color: #181818" required="required" />
+        <br>
+    </div>
+
+    <div class="form-group" style="text-align: center;">
+      <button class="btn btn-primary btn-block movie-button" style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;" disabled="true" >Click Here</button><br><br>
+    </div>
+	</div>
+
+  <div id="loader" class="text-center">
+  </div>
+  
+  <div class="fail">
+    <center><h3>Sorry! The movie you requested is not available. 
+    Please spell it right or try some other movies!</h3></center>
+  </div>
+
+	<div class="results">
+    <center>
+      <h2 id="name" class="text-uppercase"></h2>
+    </center>
+	</div>
+	
+	<footer>
+    <p class="copyright">© 2022 SRMIST. All Rights Reserved.  (Product Team- RA1811003010458/465)</p> 
+  </footer>
+  
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
