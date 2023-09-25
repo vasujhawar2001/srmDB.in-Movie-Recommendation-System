@@ -20,7 +20,7 @@ $(function() {
   })
 
   $('.movie-button').on('click',function(){
-    var my_api_key = '1d5ee61dda3b1a0cd335610bd1fc8c6d'; // TMDb API key
+    var my_api_key = '567fa4a8bbe80d380c6152d63c07401e'; // TMDb API key
     var title = $('.movie').val();
     if (title=="") {
       $('.results').css('display','none');
@@ -40,7 +40,7 @@ $(function() {
 // will be invoked when clicking on the recommended movie cards
 function recommendcard(e){
   $("#loader").fadeIn();
-  var my_api_key = '1d5ee61dda3b1a0cd335610bd1fc8c6d';
+  var my_api_key = '567fa4a8bbe80d380c6152d63c07401e';
   var title = e.getAttribute('title'); 
   load_details(my_api_key,title);
 }
